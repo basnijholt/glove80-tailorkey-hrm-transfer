@@ -9,6 +9,14 @@ This repository contains a small helper script (`copy_hrm_bindings.py`) that cop
   - `TailorKey v4.2h - macOS Bilateral.json` (source)
   - Your current layout (target)
 
+### Obtaining the JSON files
+
+1. Open https://my.glove80.com/#/settings and enable **Local Backup and Restore** so the portal lets you export/import JSON layouts.
+2. Visit the TailorKey download page (https://sites.google.com/view/keyboards/glove80_tailorkey/get-it-now) and follow the link to the layout you want, e.g. https://my.glove80.com/#/layout/user/906466c2-8029-4831-9571-2bf250ca4505.
+3. Scroll to the bottom of that layout page, click **Export ➜ JSON Download File**, and save it as `TailorKey v4.2h - macOS Bilateral.json`.
+4. Go back to your own layout on https://my.glove80.com/#/layout/... and export it the same way; save the file alongside the TailorKey export.
+5. Run `copy_hrm_bindings.py` as shown below to merge the TailorKey HRMs into your layout.
+
 ## Usage
 
 ```bash
@@ -20,7 +28,11 @@ python3 copy_hrm_bindings.py \
   --value HRM_left_pinky_v1B_TKZ \
   --value HRM_left_ring_v1B_TKZ \
   --value HRM_left_middy_v1B_TKZ \
-  --value HRM_left_index_v1B_TKZ
+  --value HRM_left_index_v1B_TKZ \
+  --value HRM_right_index_v1B_TKZ \
+  --value HRM_right_middy_v1B_TKZ \
+  --value HRM_right_ring_v1B_TKZ \
+  --value HRM_right_pinky_v1B_TKZ
 ```
 
 - The `--value` flags identify which bindings to copy; repeat for each HRM you need.
