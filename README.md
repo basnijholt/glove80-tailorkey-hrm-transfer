@@ -22,7 +22,7 @@ This repository contains a small helper script (`copy_hrm_bindings.py`) that cop
 ```bash
 python3 copy_hrm_bindings.py \
   --source "TailorKey v4.2h - macOS Bilateral.json" \
-  --target "c5342d66-e6ed-4d04-9ae0-2dfc9cd87930_QuantumTouch80.json" \
+  --target "QuantumTouch80.json" \
   --src-layer "HRM_macOS" \
   --dst-layer "BaseModded" \
   --value HRM_left_pinky_v1B_TKZ \
@@ -36,8 +36,14 @@ python3 copy_hrm_bindings.py \
 ```
 
 - The `--value` flags identify which bindings to copy; repeat for each HRM you need.
-- The script writes the result to `<target_stem>_with_hrm.json` (e.g., `...QuantumTouch80_with_hrm.json`) so the original file stays untouched. Pass `--output somefile.json` to choose a different name.
+- The script writes the result to `<target_stem>_with_hrm.json` (e.g., `QuantumTouch80_with_hrm.json`) so the original file stays untouched. Pass `--output somefile.json` to choose a different name.
 - Supporting hold-tap behaviors and macros referenced by the copied HRMs are automatically pulled in to keep the layout functional.
+
+## Importing the merged layout
+
+1. Return to https://my.glove80.com/#/layout/<your-layout>.
+2. Scroll to the bottom-left “Local Backup and Restore” card where it shows `No file chosen` and the “Drag and drop file here, or click to select” area.
+3. Choose the newly generated `*_with_hrm.json` file, click **Import**, then hit **Build** and flash the resulting firmware as usual.
 
 ## Next Steps
 
