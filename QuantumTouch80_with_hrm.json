@@ -7673,374 +7673,6 @@
   ],
   "macros": [
     {
-      "name": "&BHRM_L_Index_Hold",
-      "description": "Hold: activate Left Index layer",
-      "waitMs": 0,
-      "tapMs": 0,
-      "bindings": [
-        {
-          "value": "&macro_press",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&mo",
-          "params": [
-            {
-              "value": 8,
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_pause_for_release",
-          "params": []
-        },
-        {
-          "value": "&macro_release",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&mo",
-          "params": [
-            {
-              "value": 8,
-              "params": []
-            }
-          ]
-        }
-      ],
-      "params": [
-        "code"
-      ]
-    },
-    {
-      "name": "&BHRM_L_Index_Tap",
-      "description": "Tap: restore base key",
-      "waitMs": 0,
-      "tapMs": 0,
-      "bindings": [
-        {
-          "value": "&macro_release",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LSHFT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RSHFT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LALT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RALT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LCTRL",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RCTRL",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LGUI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RGUI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_tap",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "F",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_tap",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        }
-      ],
-      "params": [
-        "code"
-      ]
-    },
-    {
-      "name": "&BHRM_L_Middle_Hold",
-      "description": "Hold: activate Left Middle layer",
-      "waitMs": 0,
-      "tapMs": 0,
-      "bindings": [
-        {
-          "value": "&macro_press",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&mo",
-          "params": [
-            {
-              "value": 9,
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_pause_for_release",
-          "params": []
-        },
-        {
-          "value": "&macro_release",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&mo",
-          "params": [
-            {
-              "value": 9,
-              "params": []
-            }
-          ]
-        }
-      ],
-      "params": [
-        "code"
-      ]
-    },
-    {
-      "name": "&BHRM_L_Middle_Tap",
-      "description": "Tap: restore base key",
-      "waitMs": 0,
-      "tapMs": 0,
-      "bindings": [
-        {
-          "value": "&macro_release",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LSHFT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RSHFT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LALT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RALT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LCTRL",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RCTRL",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LGUI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RGUI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_tap",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "D",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_tap",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        }
-      ],
-      "params": [
-        "code"
-      ]
-    },
-    {
       "name": "&BHRM_L_Pinky_Hold",
       "description": "Hold: activate Left Pinky layer",
       "waitMs": 0,
@@ -8382,6 +8014,374 @@
           "params": [
             {
               "value": "S",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_tap",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        }
+      ],
+      "params": [
+        "code"
+      ]
+    },
+    {
+      "name": "&BHRM_L_Middle_Hold",
+      "description": "Hold: activate Left Middle layer",
+      "waitMs": 0,
+      "tapMs": 0,
+      "bindings": [
+        {
+          "value": "&macro_press",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&mo",
+          "params": [
+            {
+              "value": 9,
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_pause_for_release",
+          "params": []
+        },
+        {
+          "value": "&macro_release",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&mo",
+          "params": [
+            {
+              "value": 9,
+              "params": []
+            }
+          ]
+        }
+      ],
+      "params": [
+        "code"
+      ]
+    },
+    {
+      "name": "&BHRM_L_Middle_Tap",
+      "description": "Tap: restore base key",
+      "waitMs": 0,
+      "tapMs": 0,
+      "bindings": [
+        {
+          "value": "&macro_release",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LSHFT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RSHFT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LALT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RALT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LCTRL",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RCTRL",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LGUI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RGUI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_tap",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "D",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_tap",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        }
+      ],
+      "params": [
+        "code"
+      ]
+    },
+    {
+      "name": "&BHRM_L_Index_Hold",
+      "description": "Hold: activate Left Index layer",
+      "waitMs": 0,
+      "tapMs": 0,
+      "bindings": [
+        {
+          "value": "&macro_press",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&mo",
+          "params": [
+            {
+              "value": 8,
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_pause_for_release",
+          "params": []
+        },
+        {
+          "value": "&macro_release",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&mo",
+          "params": [
+            {
+              "value": 8,
+              "params": []
+            }
+          ]
+        }
+      ],
+      "params": [
+        "code"
+      ]
+    },
+    {
+      "name": "&BHRM_L_Index_Tap",
+      "description": "Tap: restore base key",
+      "waitMs": 0,
+      "tapMs": 0,
+      "bindings": [
+        {
+          "value": "&macro_release",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LSHFT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RSHFT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LALT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RALT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LCTRL",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RCTRL",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LGUI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RGUI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_tap",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "F",
               "params": []
             }
           ]
@@ -8777,190 +8777,6 @@
       ]
     },
     {
-      "name": "&BHRM_R_Pinky_Hold",
-      "description": "Hold: activate Right Pinky layer",
-      "waitMs": 0,
-      "tapMs": 0,
-      "bindings": [
-        {
-          "value": "&macro_press",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&mo",
-          "params": [
-            {
-              "value": 15,
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_pause_for_release",
-          "params": []
-        },
-        {
-          "value": "&macro_release",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&mo",
-          "params": [
-            {
-              "value": 15,
-              "params": []
-            }
-          ]
-        }
-      ],
-      "params": [
-        "code"
-      ]
-    },
-    {
-      "name": "&BHRM_R_Pinky_Tap",
-      "description": "Tap: restore base key",
-      "waitMs": 0,
-      "tapMs": 0,
-      "bindings": [
-        {
-          "value": "&macro_release",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LSHFT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RSHFT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LALT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RALT",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LCTRL",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RCTRL",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "LGUI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "RGUI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_tap",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "SEMI",
-              "params": []
-            }
-          ]
-        },
-        {
-          "value": "&macro_tap",
-          "params": []
-        },
-        {
-          "value": "&macro_param_1to1",
-          "params": []
-        },
-        {
-          "value": "&kp",
-          "params": [
-            {
-              "value": "A",
-              "params": []
-            }
-          ]
-        }
-      ],
-      "params": [
-        "code"
-      ]
-    },
-    {
       "name": "&BHRM_R_Ring_Hold",
       "description": "Hold: activate Right Ring layer",
       "waitMs": 0,
@@ -9143,6 +8959,190 @@
       "params": [
         "code"
       ]
+    },
+    {
+      "name": "&BHRM_R_Pinky_Hold",
+      "description": "Hold: activate Right Pinky layer",
+      "waitMs": 0,
+      "tapMs": 0,
+      "bindings": [
+        {
+          "value": "&macro_press",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&mo",
+          "params": [
+            {
+              "value": 15,
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_pause_for_release",
+          "params": []
+        },
+        {
+          "value": "&macro_release",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&mo",
+          "params": [
+            {
+              "value": 15,
+              "params": []
+            }
+          ]
+        }
+      ],
+      "params": [
+        "code"
+      ]
+    },
+    {
+      "name": "&BHRM_R_Pinky_Tap",
+      "description": "Tap: restore base key",
+      "waitMs": 0,
+      "tapMs": 0,
+      "bindings": [
+        {
+          "value": "&macro_release",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LSHFT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RSHFT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LALT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RALT",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LCTRL",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RCTRL",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "LGUI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "RGUI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_tap",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "SEMI",
+              "params": []
+            }
+          ]
+        },
+        {
+          "value": "&macro_tap",
+          "params": []
+        },
+        {
+          "value": "&macro_param_1to1",
+          "params": []
+        },
+        {
+          "value": "&kp",
+          "params": [
+            {
+              "value": "A",
+              "params": []
+            }
+          ]
+        }
+      ],
+      "params": [
+        "code"
+      ]
     }
   ],
   "inputListeners": [
@@ -9257,16 +9257,16 @@
   ],
   "holdTaps": [
     {
-      "name": "&BHRM_L_Index",
+      "name": "&BHRM_L_Pinky",
       "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&BHRM_L_Index_Hold",
+        "&BHRM_L_Pinky_Hold",
         "&kp"
       ],
-      "tappingTermMs": 190,
+      "tappingTermMs": 280,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
-      "requirePriorIdleMs": 100,
+      "requirePriorIdleMs": 150,
       "holdTriggerOnRelease": true,
       "holdTriggerKeyPositions": [
         57,
@@ -9318,16 +9318,16 @@
       ]
     },
     {
-      "name": "&BHRM_L_Index_Middle",
-      "description": "Combo: Index + Middle",
+      "name": "&BHRM_L_Pinky_Ring",
+      "description": "Combo: Pinky + Ring",
       "bindings": [
         "&kp",
-        "&BHRM_L_Index_Tap"
+        "&BHRM_L_Pinky_Tap"
       ],
-      "tappingTermMs": 190,
+      "tappingTermMs": 280,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
-      "requirePriorIdleMs": 100,
+      "requirePriorIdleMs": 150,
       "holdTriggerOnRelease": true,
       "holdTriggerKeyPositions": [
         57,
@@ -9379,16 +9379,16 @@
       ]
     },
     {
-      "name": "&BHRM_L_Index_Pinky",
-      "description": "Combo: Index + Pinky",
+      "name": "&BHRM_L_Pinky_Middle",
+      "description": "Combo: Pinky + Middle",
       "bindings": [
         "&kp",
-        "&BHRM_L_Index_Tap"
+        "&BHRM_L_Pinky_Tap"
       ],
-      "tappingTermMs": 190,
+      "tappingTermMs": 280,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
-      "requirePriorIdleMs": 100,
+      "requirePriorIdleMs": 150,
       "holdTriggerOnRelease": true,
       "holdTriggerKeyPositions": [
         57,
@@ -9440,13 +9440,257 @@
       ]
     },
     {
-      "name": "&BHRM_L_Index_Ring",
-      "description": "Combo: Index + Ring",
+      "name": "&BHRM_L_Pinky_Index",
+      "description": "Combo: Pinky + Index",
       "bindings": [
         "&kp",
-        "&BHRM_L_Index_Tap"
+        "&BHRM_L_Pinky_Tap"
       ],
-      "tappingTermMs": 190,
+      "tappingTermMs": 280,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        57,
+        56,
+        55,
+        72,
+        73,
+        74,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        40,
+        41,
+        42,
+        43,
+        44,
+        58,
+        59,
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78,
+        9,
+        21,
+        33,
+        45,
+        63,
+        79,
+        52,
+        53,
+        54,
+        70,
+        71,
+        69
+      ]
+    },
+    {
+      "name": "&BHRM_L_Ring",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
+      "bindings": [
+        "&BHRM_L_Ring_Hold",
+        "&kp"
+      ],
+      "tappingTermMs": 240,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        57,
+        56,
+        55,
+        72,
+        73,
+        74,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        40,
+        41,
+        42,
+        43,
+        44,
+        58,
+        59,
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78,
+        9,
+        21,
+        33,
+        45,
+        63,
+        79,
+        52,
+        53,
+        54,
+        70,
+        71,
+        69
+      ]
+    },
+    {
+      "name": "&BHRM_L_Ring_Pinky",
+      "description": "Combo: Ring + Pinky",
+      "bindings": [
+        "&kp",
+        "&BHRM_L_Ring_Tap"
+      ],
+      "tappingTermMs": 240,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        57,
+        56,
+        55,
+        72,
+        73,
+        74,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        40,
+        41,
+        42,
+        43,
+        44,
+        58,
+        59,
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78,
+        9,
+        21,
+        33,
+        45,
+        63,
+        79,
+        52,
+        53,
+        54,
+        70,
+        71,
+        69
+      ]
+    },
+    {
+      "name": "&BHRM_L_Ring_Middle",
+      "description": "Combo: Ring + Middle",
+      "bindings": [
+        "&kp",
+        "&BHRM_L_Ring_Tap"
+      ],
+      "tappingTermMs": 240,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        57,
+        56,
+        55,
+        72,
+        73,
+        74,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        40,
+        41,
+        42,
+        43,
+        44,
+        58,
+        59,
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78,
+        9,
+        21,
+        33,
+        45,
+        63,
+        79,
+        52,
+        53,
+        54,
+        70,
+        71,
+        69
+      ]
+    },
+    {
+      "name": "&BHRM_L_Ring_Index",
+      "description": "Combo: Ring + Index",
+      "bindings": [
+        "&kp",
+        "&BHRM_L_Ring_Tap"
+      ],
+      "tappingTermMs": 240,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
       "requirePriorIdleMs": 100,
@@ -9506,67 +9750,6 @@
       "bindings": [
         "&BHRM_L_Middle_Hold",
         "&kp"
-      ],
-      "tappingTermMs": 210,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        57,
-        56,
-        55,
-        72,
-        73,
-        74,
-        5,
-        6,
-        7,
-        8,
-        16,
-        17,
-        18,
-        19,
-        20,
-        28,
-        29,
-        30,
-        31,
-        32,
-        40,
-        41,
-        42,
-        43,
-        44,
-        58,
-        59,
-        60,
-        61,
-        62,
-        75,
-        76,
-        77,
-        78,
-        9,
-        21,
-        33,
-        45,
-        63,
-        79,
-        52,
-        53,
-        54,
-        70,
-        71,
-        69
-      ]
-    },
-    {
-      "name": "&BHRM_L_Middle_Index",
-      "description": "Combo: Middle + Index",
-      "bindings": [
-        "&kp",
-        "&BHRM_L_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",
@@ -9745,318 +9928,74 @@
       ]
     },
     {
-      "name": "&BHRM_L_Pinky",
+      "name": "&BHRM_L_Middle_Index",
+      "description": "Combo: Middle + Index",
+      "bindings": [
+        "&kp",
+        "&BHRM_L_Middle_Tap"
+      ],
+      "tappingTermMs": 210,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        57,
+        56,
+        55,
+        72,
+        73,
+        74,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        40,
+        41,
+        42,
+        43,
+        44,
+        58,
+        59,
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78,
+        9,
+        21,
+        33,
+        45,
+        63,
+        79,
+        52,
+        53,
+        54,
+        70,
+        71,
+        69
+      ]
+    },
+    {
+      "name": "&BHRM_L_Index",
       "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&BHRM_L_Pinky_Hold",
+        "&BHRM_L_Index_Hold",
         "&kp"
       ],
-      "tappingTermMs": 280,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        57,
-        56,
-        55,
-        72,
-        73,
-        74,
-        5,
-        6,
-        7,
-        8,
-        16,
-        17,
-        18,
-        19,
-        20,
-        28,
-        29,
-        30,
-        31,
-        32,
-        40,
-        41,
-        42,
-        43,
-        44,
-        58,
-        59,
-        60,
-        61,
-        62,
-        75,
-        76,
-        77,
-        78,
-        9,
-        21,
-        33,
-        45,
-        63,
-        79,
-        52,
-        53,
-        54,
-        70,
-        71,
-        69
-      ]
-    },
-    {
-      "name": "&BHRM_L_Pinky_Index",
-      "description": "Combo: Pinky + Index",
-      "bindings": [
-        "&kp",
-        "&BHRM_L_Pinky_Tap"
-      ],
-      "tappingTermMs": 280,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        57,
-        56,
-        55,
-        72,
-        73,
-        74,
-        5,
-        6,
-        7,
-        8,
-        16,
-        17,
-        18,
-        19,
-        20,
-        28,
-        29,
-        30,
-        31,
-        32,
-        40,
-        41,
-        42,
-        43,
-        44,
-        58,
-        59,
-        60,
-        61,
-        62,
-        75,
-        76,
-        77,
-        78,
-        9,
-        21,
-        33,
-        45,
-        63,
-        79,
-        52,
-        53,
-        54,
-        70,
-        71,
-        69
-      ]
-    },
-    {
-      "name": "&BHRM_L_Pinky_Middle",
-      "description": "Combo: Pinky + Middle",
-      "bindings": [
-        "&kp",
-        "&BHRM_L_Pinky_Tap"
-      ],
-      "tappingTermMs": 280,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        57,
-        56,
-        55,
-        72,
-        73,
-        74,
-        5,
-        6,
-        7,
-        8,
-        16,
-        17,
-        18,
-        19,
-        20,
-        28,
-        29,
-        30,
-        31,
-        32,
-        40,
-        41,
-        42,
-        43,
-        44,
-        58,
-        59,
-        60,
-        61,
-        62,
-        75,
-        76,
-        77,
-        78,
-        9,
-        21,
-        33,
-        45,
-        63,
-        79,
-        52,
-        53,
-        54,
-        70,
-        71,
-        69
-      ]
-    },
-    {
-      "name": "&BHRM_L_Pinky_Ring",
-      "description": "Combo: Pinky + Ring",
-      "bindings": [
-        "&kp",
-        "&BHRM_L_Pinky_Tap"
-      ],
-      "tappingTermMs": 280,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        57,
-        56,
-        55,
-        72,
-        73,
-        74,
-        5,
-        6,
-        7,
-        8,
-        16,
-        17,
-        18,
-        19,
-        20,
-        28,
-        29,
-        30,
-        31,
-        32,
-        40,
-        41,
-        42,
-        43,
-        44,
-        58,
-        59,
-        60,
-        61,
-        62,
-        75,
-        76,
-        77,
-        78,
-        9,
-        21,
-        33,
-        45,
-        63,
-        79,
-        52,
-        53,
-        54,
-        70,
-        71,
-        69
-      ]
-    },
-    {
-      "name": "&BHRM_L_Ring",
-      "description": "HRM: tap\u2192key, hold\u2192layer",
-      "bindings": [
-        "&BHRM_L_Ring_Hold",
-        "&kp"
-      ],
-      "tappingTermMs": 240,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        57,
-        56,
-        55,
-        72,
-        73,
-        74,
-        5,
-        6,
-        7,
-        8,
-        16,
-        17,
-        18,
-        19,
-        20,
-        28,
-        29,
-        30,
-        31,
-        32,
-        40,
-        41,
-        42,
-        43,
-        44,
-        58,
-        59,
-        60,
-        61,
-        62,
-        75,
-        76,
-        77,
-        78,
-        9,
-        21,
-        33,
-        45,
-        63,
-        79,
-        52,
-        53,
-        54,
-        70,
-        71,
-        69
-      ]
-    },
-    {
-      "name": "&BHRM_L_Ring_Index",
-      "description": "Combo: Ring + Index",
-      "bindings": [
-        "&kp",
-        "&BHRM_L_Ring_Tap"
-      ],
-      "tappingTermMs": 240,
+      "tappingTermMs": 190,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
       "requirePriorIdleMs": 100,
@@ -10111,16 +10050,16 @@
       ]
     },
     {
-      "name": "&BHRM_L_Ring_Middle",
-      "description": "Combo: Ring + Middle",
+      "name": "&BHRM_L_Index_Pinky",
+      "description": "Combo: Index + Pinky",
       "bindings": [
         "&kp",
-        "&BHRM_L_Ring_Tap"
+        "&BHRM_L_Index_Tap"
       ],
-      "tappingTermMs": 240,
+      "tappingTermMs": 190,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
+      "requirePriorIdleMs": 100,
       "holdTriggerOnRelease": true,
       "holdTriggerKeyPositions": [
         57,
@@ -10172,16 +10111,77 @@
       ]
     },
     {
-      "name": "&BHRM_L_Ring_Pinky",
-      "description": "Combo: Ring + Pinky",
+      "name": "&BHRM_L_Index_Ring",
+      "description": "Combo: Index + Ring",
       "bindings": [
         "&kp",
-        "&BHRM_L_Ring_Tap"
+        "&BHRM_L_Index_Tap"
       ],
-      "tappingTermMs": 240,
+      "tappingTermMs": 190,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
+      "requirePriorIdleMs": 100,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        57,
+        56,
+        55,
+        72,
+        73,
+        74,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        40,
+        41,
+        42,
+        43,
+        44,
+        58,
+        59,
+        60,
+        61,
+        62,
+        75,
+        76,
+        77,
+        78,
+        9,
+        21,
+        33,
+        45,
+        63,
+        79,
+        52,
+        53,
+        54,
+        70,
+        71,
+        69
+      ]
+    },
+    {
+      "name": "&BHRM_L_Index_Middle",
+      "description": "Combo: Index + Middle",
+      "bindings": [
+        "&kp",
+        "&BHRM_L_Index_Tap"
+      ],
+      "tappingTermMs": 190,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 100,
       "holdTriggerOnRelease": true,
       "holdTriggerKeyPositions": [
         57,
@@ -10355,8 +10355,8 @@
       ]
     },
     {
-      "name": "&BHRM_R_Index_Pinky",
-      "description": "Combo: Index + Pinky",
+      "name": "&BHRM_R_Index_Ring",
+      "description": "Combo: Index + Ring",
       "bindings": [
         "&kp",
         "&BHRM_R_Index_Tap"
@@ -10416,8 +10416,8 @@
       ]
     },
     {
-      "name": "&BHRM_R_Index_Ring",
-      "description": "Combo: Index + Ring",
+      "name": "&BHRM_R_Index_Pinky",
+      "description": "Combo: Index + Pinky",
       "bindings": [
         "&kp",
         "&BHRM_R_Index_Tap"
@@ -10599,6 +10599,67 @@
       ]
     },
     {
+      "name": "&BHRM_R_Middle_Ring",
+      "description": "Combo: Middle + Ring",
+      "bindings": [
+        "&kp",
+        "&BHRM_R_Middle_Tap"
+      ],
+      "tappingTermMs": 210,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        0,
+        10,
+        22,
+        34,
+        46,
+        64,
+        65,
+        47,
+        35,
+        23,
+        1,
+        2,
+        12,
+        11,
+        24,
+        36,
+        48,
+        66,
+        67,
+        49,
+        37,
+        25,
+        13,
+        3,
+        4,
+        14,
+        15,
+        27,
+        26,
+        38,
+        39,
+        51,
+        50,
+        68,
+        52,
+        53,
+        54,
+        71,
+        70,
+        69,
+        55,
+        56,
+        57,
+        74,
+        73,
+        72
+      ]
+    },
+    {
       "name": "&BHRM_R_Middle_Pinky",
       "description": "Combo: Middle + Pinky",
       "bindings": [
@@ -10660,13 +10721,196 @@
       ]
     },
     {
-      "name": "&BHRM_R_Middle_Ring",
-      "description": "Combo: Middle + Ring",
+      "name": "&BHRM_R_Ring",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
+      "bindings": [
+        "&BHRM_R_Ring_Hold",
+        "&kp"
+      ],
+      "tappingTermMs": 240,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        0,
+        10,
+        22,
+        34,
+        46,
+        64,
+        65,
+        47,
+        35,
+        23,
+        1,
+        2,
+        12,
+        11,
+        24,
+        36,
+        48,
+        66,
+        67,
+        49,
+        37,
+        25,
+        13,
+        3,
+        4,
+        14,
+        15,
+        27,
+        26,
+        38,
+        39,
+        51,
+        50,
+        68,
+        52,
+        53,
+        54,
+        71,
+        70,
+        69,
+        55,
+        56,
+        57,
+        74,
+        73,
+        72
+      ]
+    },
+    {
+      "name": "&BHRM_R_Ring_Index",
+      "description": "Combo: Ring + Index",
       "bindings": [
         "&kp",
-        "&BHRM_R_Middle_Tap"
+        "&BHRM_R_Ring_Tap"
       ],
-      "tappingTermMs": 210,
+      "tappingTermMs": 240,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        0,
+        10,
+        22,
+        34,
+        46,
+        64,
+        65,
+        47,
+        35,
+        23,
+        1,
+        2,
+        12,
+        11,
+        24,
+        36,
+        48,
+        66,
+        67,
+        49,
+        37,
+        25,
+        13,
+        3,
+        4,
+        14,
+        15,
+        27,
+        26,
+        38,
+        39,
+        51,
+        50,
+        68,
+        52,
+        53,
+        54,
+        71,
+        70,
+        69,
+        55,
+        56,
+        57,
+        74,
+        73,
+        72
+      ]
+    },
+    {
+      "name": "&BHRM_R_Ring_Middle",
+      "description": "Combo: Ring + Middle",
+      "bindings": [
+        "&kp",
+        "&BHRM_R_Ring_Tap"
+      ],
+      "tappingTermMs": 240,
+      "flavor": "tap-preferred",
+      "quickTapMs": 300,
+      "requirePriorIdleMs": 150,
+      "holdTriggerOnRelease": true,
+      "holdTriggerKeyPositions": [
+        0,
+        10,
+        22,
+        34,
+        46,
+        64,
+        65,
+        47,
+        35,
+        23,
+        1,
+        2,
+        12,
+        11,
+        24,
+        36,
+        48,
+        66,
+        67,
+        49,
+        37,
+        25,
+        13,
+        3,
+        4,
+        14,
+        15,
+        27,
+        26,
+        38,
+        39,
+        51,
+        50,
+        68,
+        52,
+        53,
+        54,
+        71,
+        70,
+        69,
+        55,
+        56,
+        57,
+        74,
+        73,
+        72
+      ]
+    },
+    {
+      "name": "&BHRM_R_Ring_Pinky",
+      "description": "Combo: Ring + Pinky",
+      "bindings": [
+        "&kp",
+        "&BHRM_R_Ring_Tap"
+      ],
+      "tappingTermMs": 240,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
       "requirePriorIdleMs": 150,
@@ -10911,250 +11155,6 @@
         "&BHRM_R_Pinky_Tap"
       ],
       "tappingTermMs": 280,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        0,
-        10,
-        22,
-        34,
-        46,
-        64,
-        65,
-        47,
-        35,
-        23,
-        1,
-        2,
-        12,
-        11,
-        24,
-        36,
-        48,
-        66,
-        67,
-        49,
-        37,
-        25,
-        13,
-        3,
-        4,
-        14,
-        15,
-        27,
-        26,
-        38,
-        39,
-        51,
-        50,
-        68,
-        52,
-        53,
-        54,
-        71,
-        70,
-        69,
-        55,
-        56,
-        57,
-        74,
-        73,
-        72
-      ]
-    },
-    {
-      "name": "&BHRM_R_Ring",
-      "description": "HRM: tap\u2192key, hold\u2192layer",
-      "bindings": [
-        "&BHRM_R_Ring_Hold",
-        "&kp"
-      ],
-      "tappingTermMs": 240,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        0,
-        10,
-        22,
-        34,
-        46,
-        64,
-        65,
-        47,
-        35,
-        23,
-        1,
-        2,
-        12,
-        11,
-        24,
-        36,
-        48,
-        66,
-        67,
-        49,
-        37,
-        25,
-        13,
-        3,
-        4,
-        14,
-        15,
-        27,
-        26,
-        38,
-        39,
-        51,
-        50,
-        68,
-        52,
-        53,
-        54,
-        71,
-        70,
-        69,
-        55,
-        56,
-        57,
-        74,
-        73,
-        72
-      ]
-    },
-    {
-      "name": "&BHRM_R_Ring_Index",
-      "description": "Combo: Ring + Index",
-      "bindings": [
-        "&kp",
-        "&BHRM_R_Ring_Tap"
-      ],
-      "tappingTermMs": 240,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        0,
-        10,
-        22,
-        34,
-        46,
-        64,
-        65,
-        47,
-        35,
-        23,
-        1,
-        2,
-        12,
-        11,
-        24,
-        36,
-        48,
-        66,
-        67,
-        49,
-        37,
-        25,
-        13,
-        3,
-        4,
-        14,
-        15,
-        27,
-        26,
-        38,
-        39,
-        51,
-        50,
-        68,
-        52,
-        53,
-        54,
-        71,
-        70,
-        69,
-        55,
-        56,
-        57,
-        74,
-        73,
-        72
-      ]
-    },
-    {
-      "name": "&BHRM_R_Ring_Middle",
-      "description": "Combo: Ring + Middle",
-      "bindings": [
-        "&kp",
-        "&BHRM_R_Ring_Tap"
-      ],
-      "tappingTermMs": 240,
-      "flavor": "tap-preferred",
-      "quickTapMs": 300,
-      "requirePriorIdleMs": 150,
-      "holdTriggerOnRelease": true,
-      "holdTriggerKeyPositions": [
-        0,
-        10,
-        22,
-        34,
-        46,
-        64,
-        65,
-        47,
-        35,
-        23,
-        1,
-        2,
-        12,
-        11,
-        24,
-        36,
-        48,
-        66,
-        67,
-        49,
-        37,
-        25,
-        13,
-        3,
-        4,
-        14,
-        15,
-        27,
-        26,
-        38,
-        39,
-        51,
-        50,
-        68,
-        52,
-        53,
-        54,
-        71,
-        70,
-        69,
-        55,
-        56,
-        57,
-        74,
-        73,
-        72
-      ]
-    },
-    {
-      "name": "&BHRM_R_Ring_Pinky",
-      "description": "Combo: Ring + Pinky",
-      "bindings": [
-        "&kp",
-        "&BHRM_R_Ring_Tap"
-      ],
-      "tappingTermMs": 240,
       "flavor": "tap-preferred",
       "quickTapMs": 300,
       "requirePriorIdleMs": 150,

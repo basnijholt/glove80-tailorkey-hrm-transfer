@@ -7,6 +7,9 @@ from typing import Any
 
 HAND_MAP = {"left": "L", "right": "R"}
 HAND_NAMES = {"L": "Left", "R": "Right"}
+LEFT_FINGER_ORDER = ["Pinky", "Ring", "Middle", "Index"]
+RIGHT_FINGER_ORDER = ["Index", "Middle", "Ring", "Pinky"]
+ROLE_SORT = {"Hold": 0, "Tap": 1}
 FINGER_MAP = {
     "index": "Index",
     "middle": "Middle",
@@ -149,6 +152,17 @@ def parse_bhrm_name(name: str) -> dict[str, Any] | None:
     }
 
 
+def finger_rank(hand: str, finger: str) -> int:
+    try:
+        if hand == "Left":
+            return LEFT_FINGER_ORDER.index(finger)
+        if hand == "Right":
+            return len(LEFT_FINGER_ORDER) + RIGHT_FINGER_ORDER.index(finger)
+    except ValueError:
+        pass
+    return 99
+
+
 def describe_macro(name: str, current: str) -> str:
     info = parse_bhrm_name(name)
     base = current.replace(" - TailorKey", "").strip()
@@ -176,6 +190,25 @@ def describe_holdtap(name: str, current: str) -> str:
     return "HRM: tap→key, hold→layer"
 
 
+def holdtap_sort_key(item: dict[str, Any]) -> tuple:
+    info = parse_bhrm_name(item.get("name", ""))
+    if not info:
+        return (999, item.get("name", ""))
+    rank = finger_rank(info["hand"], info["primary"])
+    combo_flag = 1 if info["combos"] else 0
+    combo_ranks = tuple(finger_rank(info["hand"], combo) for combo in info["combos"])
+    return (rank, combo_flag, combo_ranks, item.get("name", ""))
+
+
+def macro_sort_key(item: dict[str, Any]) -> tuple:
+    info = parse_bhrm_name(item.get("name", ""))
+    if not info:
+        return (999, item.get("name", ""))
+    rank = finger_rank(info["hand"], info["primary"])
+    role_rank = ROLE_SORT.get(info["role"], 2)
+    return (rank, role_rank, item.get("name", ""))
+
+
 def apply_bhrm_cleanup(data: dict[str, Any]) -> dict[str, Any]:
     cleaned = transform_strings(data)
     macros = cleaned.get("macros", [])
@@ -190,6 +223,6 @@ def apply_bhrm_cleanup(data: dict[str, Any]) -> dict[str, Any]:
             holdtap.get("name", ""),
             holdtap.get("description", ""),
         )
-    macros.sort(key=lambda m: m.get("name", ""))
-    holdtaps.sort(key=lambda ht: ht.get("name", ""))
+    macros.sort(key=macro_sort_key)
+    holdtaps.sort(key=holdtap_sort_key)
     return cleaned
