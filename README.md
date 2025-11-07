@@ -38,6 +38,7 @@ python3 copy_hrm_bindings.py \
 - The `--value` flags identify which bindings to copy; repeat for each HRM you need.
 - The script writes the result to `<target_stem>_with_hrm.json` (e.g., `QuantumTouch80_with_hrm.json`) so the original file stays untouched. Pass `--output somefile.json` to choose a different name.
 - Supporting hold-tap behaviors and macros referenced by the copied HRMs are automatically pulled in to keep the layout functional.
+- TailorKey’s finger layers (`LeftIndex` … `RightPinky`) are copied as needed, and the macro `&mo` references are remapped so the holds activate the correct layers in your layout.
 
 ## Importing the merged layout
 

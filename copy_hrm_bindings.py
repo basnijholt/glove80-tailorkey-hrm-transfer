@@ -23,7 +23,7 @@ import copy
 import json
 import pathlib
 import sys
-from typing import Dict, List, Tuple
+from typing import Dict, List, Set, Tuple
 
 
 def load_json(path: pathlib.Path) -> Dict:
@@ -88,6 +88,51 @@ def collect_support_objects(
     return collected_holdtaps, collected_macros
 
 
+def collect_macro_layer_indices(macros: List[Dict]) -> Set[int]:
+    indices: Set[int] = set()
+    for macro in macros:
+        for binding in macro.get("bindings", []):
+            if binding.get("value") != "&mo":
+                continue
+            for param in binding.get("params", []):
+                value = param.get("value")
+                if isinstance(value, int):
+                    indices.add(value)
+    return indices
+
+
+def ensure_layers(
+    source: Dict, target: Dict, needed_indices: Set[int]
+) -> Dict[int, int]:
+    mapping: Dict[int, int] = {}
+    existing = {name: idx for idx, name in enumerate(target["layer_names"])}
+
+    for src_idx in sorted(needed_indices):
+        if src_idx < 0 or src_idx >= len(source["layers"]):
+            continue
+        name = source["layer_names"][src_idx]
+        if name in existing:
+            mapping[src_idx] = existing[name]
+            continue
+        target["layer_names"].append(name)
+        target["layers"].append(copy.deepcopy(source["layers"][src_idx]))
+        new_idx = len(target["layer_names"]) - 1
+        existing[name] = new_idx
+        mapping[src_idx] = new_idx
+    return mapping
+
+
+def remap_macro_layers(macros: List[Dict], layer_map: Dict[int, int]) -> None:
+    for macro in macros:
+        for binding in macro.get("bindings", []):
+            if binding.get("value") != "&mo":
+                continue
+            for param in binding.get("params", []):
+                value = param.get("value")
+                if isinstance(value, int) and value in layer_map:
+                    param["value"] = layer_map[value]
+
+
 def parse_args(argv: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", required=True, help="Source layout JSON path.")
@@ -149,19 +194,26 @@ def main(argv: List[str]) -> int:
     for idx, key in entries:
         dst_layer[idx] = copy.deepcopy(key)
 
-    holdtaps, macros = collect_support_objects(
+    holdtaps_src, macros_src = collect_support_objects(
         source, [key.get("value") for _, key in entries]
     )
+
+    holdtaps = [copy.deepcopy(ht) for ht in holdtaps_src]
+    macros = [copy.deepcopy(m) for m in macros_src]
+
+    required_layer_indices = collect_macro_layer_indices(macros)
+    layer_index_map = ensure_layers(source, target, required_layer_indices)
+    remap_macro_layers(macros, layer_index_map)
 
     if holdtaps:
         target.setdefault("holdTaps", [])
         for ht in holdtaps:
-            upsert_named(target["holdTaps"], copy.deepcopy(ht))
+            upsert_named(target["holdTaps"], ht)
 
     if macros:
         target.setdefault("macros", [])
         for macro in macros:
-            upsert_named(target["macros"], copy.deepcopy(macro))
+            upsert_named(target["macros"], macro)
 
     with output_path.open("w") as fh:
         json.dump(target, fh, indent=2)
@@ -175,6 +227,11 @@ def main(argv: List[str]) -> int:
         print(f"Included {len(holdtaps)} holdTap definitions.")
     if macros:
         print(f"Included {len(macros)} macro definitions.")
+    if layer_index_map:
+        print(
+            "Added/updated layers:"
+            f" {', '.join(target['layer_names'][idx] for idx in layer_index_map.values())}"
+        )
     return 0
 
 
