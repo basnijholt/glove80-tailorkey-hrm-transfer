@@ -14,6 +14,7 @@ Example:
         --output "QuantumTouch80_with_tailorkey_hrm.json"
 
 If --output is omitted the script writes to <target_stem>_with_hrm<suffix>.
+
 """
 
 from __future__ import annotations
@@ -23,31 +24,34 @@ import copy
 import json
 import pathlib
 import sys
-from typing import Dict, List, Set, Tuple
 
-
-def load_json(path: pathlib.Path) -> Dict:
-    try:
-        with path.open() as fh:
-            return json.load(fh)
-    except FileNotFoundError as exc:
-        raise SystemExit(f"Could not read '{path}': {exc}") from exc
-
-
-def find_layer_index(layout: Dict, layer_name: str) -> int:
-    try:
-        return layout["layer_names"].index(layer_name)
-    except ValueError as exc:
-        raise SystemExit(
-            f"Layer '{layer_name}' not found. Available: {layout['layer_names']}"
-        ) from exc
+from hrm_utils import apply_bhrm_cleanup
 
 
 def normalize_value_name(name: str) -> str:
     return name if name.startswith("&") else f"&{name}"
 
 
-def upsert_named(collection: List[Dict], item: Dict) -> None:
+def load_json(path: pathlib.Path) -> dict:
+    try:
+        with path.open() as fh:
+            return json.load(fh)
+    except FileNotFoundError as exc:
+        msg = f"Could not read '{path}': {exc}"
+        raise SystemExit(msg) from exc
+
+
+def find_layer_index(layout: dict, layer_name: str) -> int:
+    try:
+        return layout["layer_names"].index(layer_name)
+    except ValueError as exc:
+        msg = f"Layer '{layer_name}' not found. Available: {layout['layer_names']}"
+        raise SystemExit(
+            msg,
+        ) from exc
+
+
+def upsert_named(collection: list[dict], item: dict) -> None:
     for idx, existing in enumerate(collection):
         if existing.get("name") == item.get("name"):
             collection[idx] = item
@@ -56,9 +60,10 @@ def upsert_named(collection: List[Dict], item: Dict) -> None:
 
 
 def collect_layer_entries(
-    layer: List[Dict], wanted_values: List[str]
-) -> List[Tuple[int, Dict]]:
-    entries: List[Tuple[int, Dict]] = []
+    layer: list[dict],
+    wanted_values: list[str],
+) -> list[tuple[int, dict]]:
+    entries: list[tuple[int, dict]] = []
     for idx, key in enumerate(layer):
         if key.get("value") in wanted_values:
             entries.append((idx, key))
@@ -66,21 +71,22 @@ def collect_layer_entries(
 
 
 def collect_support_objects(
-    source: Dict, names: List[str]
-) -> Tuple[List[Dict], List[Dict]]:
+    source: dict,
+    names: list[str],
+) -> tuple[list[dict], list[dict]]:
     holdtap_map = {item["name"]: item for item in source.get("holdTaps", [])}
     macro_map = {item["name"]: item for item in source.get("macros", [])}
 
-    collected_holdtaps: List[Dict] = []
-    collected_macros: List[Dict] = []
-    queue: List[str] = list(names)
-    seen_holdtaps: Set[str] = set()
-    seen_macros: Set[str] = set()
+    collected_holdtaps: list[dict] = []
+    collected_macros: list[dict] = []
+    queue: list[str] = list(names)
+    seen_holdtaps: set[str] = set()
+    seen_macros: set[str] = set()
 
     def enqueue(name: str) -> None:
-        if name in holdtap_map and name not in seen_holdtaps:
-            queue.append(name)
-        elif name in macro_map and name not in seen_macros:
+        if (name in holdtap_map and name not in seen_holdtaps) or (
+            name in macro_map and name not in seen_macros
+        ):
             queue.append(name)
 
     while queue:
@@ -111,8 +117,8 @@ def collect_support_objects(
     return collected_holdtaps, collected_macros
 
 
-def collect_macro_layer_indices(macros: List[Dict]) -> Set[int]:
-    indices: Set[int] = set()
+def collect_macro_layer_indices(macros: list[dict]) -> set[int]:
+    indices: set[int] = set()
     for macro in macros:
         for binding in macro.get("bindings", []):
             if binding.get("value") != "&mo":
@@ -125,9 +131,11 @@ def collect_macro_layer_indices(macros: List[Dict]) -> Set[int]:
 
 
 def ensure_layers(
-    source: Dict, target: Dict, needed_indices: Set[int]
-) -> Dict[int, int]:
-    mapping: Dict[int, int] = {}
+    source: dict,
+    target: dict,
+    needed_indices: set[int],
+) -> dict[int, int]:
+    mapping: dict[int, int] = {}
     existing = {name: idx for idx, name in enumerate(target["layer_names"])}
 
     for src_idx in sorted(needed_indices):
@@ -145,8 +153,8 @@ def ensure_layers(
     return mapping
 
 
-def gather_layer_values(source: Dict, layer_indices: Set[int]) -> Set[str]:
-    values: Set[str] = set()
+def gather_layer_values(source: dict, layer_indices: set[int]) -> set[str]:
+    values: set[str] = set()
     layers = source["layers"]
     for idx in layer_indices:
         if idx < 0 or idx >= len(layers):
@@ -158,7 +166,7 @@ def gather_layer_values(source: Dict, layer_indices: Set[int]) -> Set[str]:
     return values
 
 
-def remap_macro_layers(macros: List[Dict], layer_map: Dict[int, int]) -> None:
+def remap_macro_layers(macros: list[dict], layer_map: dict[int, int]) -> None:
     for macro in macros:
         for binding in macro.get("bindings", []):
             if binding.get("value") != "&mo":
@@ -169,7 +177,7 @@ def remap_macro_layers(macros: List[Dict], layer_map: Dict[int, int]) -> None:
                     param["value"] = layer_map[value]
 
 
-def parse_args(argv: List[str]) -> argparse.Namespace:
+def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", required=True, help="Source layout JSON path.")
     parser.add_argument("--target", required=True, help="Target layout JSON path.")
@@ -188,8 +196,7 @@ def parse_args(argv: List[str]) -> argparse.Namespace:
         dest="values",
         action="append",
         required=True,
-        help="Behavior value to copy (repeat for multiple). "
-        "Prefix '&' optional.",
+        help="Behavior value to copy (repeat for multiple). Prefix '&' optional.",
     )
     parser.add_argument(
         "--output",
@@ -198,7 +205,7 @@ def parse_args(argv: List[str]) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-def main(argv: List[str]) -> int:
+def main(argv: list[str]) -> int:
     args = parse_args(argv)
 
     source_path = pathlib.Path(args.source)
@@ -223,8 +230,9 @@ def main(argv: List[str]) -> int:
     missing = set(wanted_values) - {key.get("value") for _, key in entries}
     if missing:
         missing_str = ", ".join(sorted(missing))
+        msg = f"The following values were not found on layer '{args.src_layer}': {missing_str}"
         raise SystemExit(
-            f"The following values were not found on layer '{args.src_layer}': {missing_str}"
+            msg,
         )
 
     for idx, key in entries:
@@ -237,7 +245,8 @@ def main(argv: List[str]) -> int:
     all_required_values = initial_values | layer_value_requirements
 
     holdtaps_src, macros_src = collect_support_objects(
-        source, list(all_required_values)
+        source,
+        list(all_required_values),
     )
 
     holdtaps = [copy.deepcopy(ht) for ht in holdtaps_src]
@@ -257,13 +266,15 @@ def main(argv: List[str]) -> int:
         for macro in macros:
             upsert_named(target["macros"], macro)
 
+    target = apply_bhrm_cleanup(target)
+
     with output_path.open("w") as fh:
         json.dump(target, fh, indent=2)
         fh.write("\n")
 
     print(
         f"Copied {len(entries)} bindings from '{args.src_layer}' to '{args.dst_layer}' "
-        f"into {output_path}."
+        f"into {output_path}.",
     )
     if holdtaps:
         print(f"Included {len(holdtaps)} holdTap definitions.")
@@ -272,7 +283,7 @@ def main(argv: List[str]) -> int:
     if layer_index_map:
         print(
             "Added/updated layers:"
-            f" {', '.join(target['layer_names'][idx] for idx in layer_index_map.values())}"
+            f" {', '.join(target['layer_names'][idx] for idx in layer_index_map.values())}",
         )
     return 0
 

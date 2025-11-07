@@ -10,8 +10,8 @@
   "title": "QuantumTouch80",
   "notes": "",
   "tags": [],
-  "custom_defined_behaviors": "// \"Meh\" key to define custom commands in e.g., VSCode\n// NOTE: Using right-side keys because of Keyd remaps in Linux\n#define MEH_KEY RA(RC(RIGHT_SHIFT))\n\nbehaviors {\n    // Shift + Backspace for Delete\n    bspc_del: backspace_delete {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp BACKSPACE>, <&kp DELETE>;\n        mods = <(MOD_LSFT|MOD_RSFT)>;\n        keep-mods = <0>;\n    };\n\n    // Double tap to toggle caps word\n    td_caps_lshift: tap_dance_caps_lshift {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&kp LSHIFT>, <&caps_word>;\n    };\n    td_caps_rshift: tap_dance_caps_rshift {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&kp RSHIFT>, <&caps_word>;\n    };\n    // (Sticky) Double tap to toggle caps word\n    td_caps_lshift_sk: tap_dance_caps_lshift_sk {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&sk LSHIFT>, <&caps_word>;\n    };\n    td_caps_rshift_sk: tap_dance_caps_rshift_sk {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&sk RSHIFT>, <&caps_word>;\n    };\n\n    // Double tap Command for Enter\n    td_lgui_enter: td_lgui_enter {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&kp LGUI>, <&kp ENTER>;\n    };\n    // (Sticky) Double tap Command for Enter\n    td_lgui_enter_sk: td_lgui_enter_sk {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&sk LGUI>, <&kp ENTER>;\n    };\n\n    behavior_caps_word {\n        continue-list = <\n            UNDERSCORE\n            BACKSPACE DELETE\n            N1 N2 N3 N4 N5 N6 N7 N8 N9 N0\n            LSHFT RSHFT\n        >;\n        mods = <(MOD_LSFT | MOD_RSFT)>;\n    };\n\n    // Mac-style word navigation with Alt (Option)\n    alt_left_word: alt_left_word {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp LC(LEFT)>, <&kp LEFT>;\n        mods = <(MOD_LSFT|MOD_LCTL)>;\n        keep-mods = <(MOD_LSFT|MOD_LCTL)>;\n    };\n\n    alt_right_word: alt_right_word {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp LC(RIGHT)>, <&kp RIGHT>;\n        mods = <(MOD_LSFT|MOD_LCTL)>;\n        keep-mods = <(MOD_LSFT|MOD_LCTL)>;\n    };\n\n    // Mac-style Shift + Backspace for Delete\n    alt_bspc_del_morph: alt_bspc_del_morph {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp LC(BSPC)>, <&kp LC(DEL)>;\n        mods = <(MOD_LSFT|MOD_RSFT)>;\n    };\n\n    cmd_bspc_del_morph: cmd_bspc_del_morph {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&cmd_backspace>, <&cmd_delete>;\n        mods = <(MOD_LSFT|MOD_RSFT)>;\n    };\n\n};\n\nmacros {\n\n    // Delete line left (Cmd+Backspace)\n    cmd_backspace: cmd_backspace {\n        label = \"&CMD_BACKSPACE\";\n        compatible = \"zmk,behavior-macro\";\n        #binding-cells = <0>;\n        bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp HOME>, <&macro_release &kp LSHFT>, <&macro_tap &kp BSPC>;\n    };\n\n    // Delete line right (Cmd+Delete)\n    cmd_delete: cmd_delete {\n        label = \"&CMD_DELETE\";\n        compatible = \"zmk,behavior-macro\";\n        #binding-cells = <0>;\n        bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp END>, <&macro_release &kp LSHFT>, <&macro_tap &kp DEL>;\n    };\n};\n",
-  "custom_devicetree": "&mt {\n    flavor = \"tap-preferred\";\n    tapping-term-ms = <220>;\n};\n",
+  "custom_defined_behaviors": "// \"Meh\" key to define custom commands in e.g., VSCode\n// NOTE: Using right-side keys because of Keyd remaps in Linux\n#define MEH_KEY RA(RC(RIGHT_SHIFT))\n\nbehaviors {\n    // Shift + Backspace for Delete\n    bspc_del: backspace_delete {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp BACKSPACE>, <&kp DELETE>;\n        mods = <(MOD_LSFT|MOD_RSFT)>;\n        keep-mods = <0>;\n    };\n\n    // Double tap to toggle caps word\n    td_caps_lshift: tap_dance_caps_lshift {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&kp LSHIFT>, <&caps_word>;\n    };\n    td_caps_rshift: tap_dance_caps_rshift {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&kp RSHIFT>, <&caps_word>;\n    };\n    // (Sticky) Double tap to toggle caps word\n    td_caps_lshift_sk: tap_dance_caps_lshift_sk {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&sk LSHIFT>, <&caps_word>;\n    };\n    td_caps_rshift_sk: tap_dance_caps_rshift_sk {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&sk RSHIFT>, <&caps_word>;\n    };\n\n    // Double tap Command for Enter\n    td_lgui_enter: td_lgui_enter {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&kp LGUI>, <&kp ENTER>;\n    };\n    // (Sticky) Double tap Command for Enter\n    td_lgui_enter_sk: td_lgui_enter_sk {\n        compatible = \"zmk,behavior-tap-dance\";\n        #binding-cells = <0>;\n        tapping-term-ms = <200>;\n        bindings = <&sk LGUI>, <&kp ENTER>;\n    };\n\n    behavior_caps_word {\n        continue-list = <\n            UNDERSCORE\n            BACKSPACE DELETE\n            N1 N2 N3 N4 N5 N6 N7 N8 N9 N0\n            LSHFT RSHFT\n        >;\n        mods = <(MOD_LSFT | MOD_RSFT)>;\n    };\n\n    // Mac-style word navigation with Alt (Option)\n    alt_left_word: alt_left_word {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp LC(LEFT)>, <&kp LEFT>;\n        mods = <(MOD_LSFT|MOD_LCTL)>;\n        keep-mods = <(MOD_LSFT|MOD_LCTL)>;\n    };\n\n    alt_right_word: alt_right_word {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp LC(RIGHT)>, <&kp RIGHT>;\n        mods = <(MOD_LSFT|MOD_LCTL)>;\n        keep-mods = <(MOD_LSFT|MOD_LCTL)>;\n    };\n\n    // Mac-style Shift + Backspace for Delete\n    alt_bspc_del_morph: alt_bspc_del_morph {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&kp LC(BSPC)>, <&kp LC(DEL)>;\n        mods = <(MOD_LSFT|MOD_RSFT)>;\n    };\n\n    cmd_bspc_del_morph: cmd_bspc_del_morph {\n        compatible = \"zmk,behavior-mod-morph\";\n        #binding-cells = <0>;\n        bindings = <&cmd_backspace>, <&cmd_delete>;\n        mods = <(MOD_LSFT|MOD_RSFT)>;\n    };\n\n};\n\nmacros {\n\n    // Delete line left (Cmd+Backspace)\n    cmd_backspace: cmd_backspace {\n        label = \"&CMD_BACKSPACE\";\n        compatible = \"zmk,behavior-macro\";\n        #binding-cells = <0>;\n        bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp HOME>, <&macro_release &kp LSHFT>, <&macro_tap &kp BSPC>;\n    };\n\n    // Delete line right (Cmd+Delete)\n    cmd_delete: cmd_delete {\n        label = \"&CMD_DELETE\";\n        compatible = \"zmk,behavior-macro\";\n        #binding-cells = <0>;\n        bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp END>, <&macro_release &kp LSHFT>, <&macro_tap &kp DEL>;\n    };\n};",
+  "custom_devicetree": "&mt {\n    flavor = \"tap-preferred\";\n    tapping-term-ms = <220>;\n};",
   "config_parameters": [
     {
       "paramName": "BLE_BAS",
@@ -1021,7 +1021,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_pinky_v1B_TKZ",
+        "value": "&BHRM_L_Pinky",
         "params": [
           {
             "value": "LCTRL",
@@ -1034,7 +1034,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_v1B_TKZ",
+        "value": "&BHRM_L_Ring",
         "params": [
           {
             "value": "LALT",
@@ -1047,7 +1047,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_v1B_TKZ",
+        "value": "&BHRM_L_Middle",
         "params": [
           {
             "value": "LGUI",
@@ -1060,7 +1060,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_v1B_TKZ",
+        "value": "&BHRM_L_Index",
         "params": [
           {
             "value": "LSHFT",
@@ -1081,7 +1081,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_v1B_TKZ",
+        "value": "&BHRM_R_Index",
         "params": [
           {
             "value": "RSHFT",
@@ -1094,7 +1094,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_v1B_TKZ",
+        "value": "&BHRM_R_Middle",
         "params": [
           {
             "value": "RGUI",
@@ -1107,7 +1107,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_v1B_TKZ",
+        "value": "&BHRM_R_Ring",
         "params": [
           {
             "value": "LALT",
@@ -1120,7 +1120,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_v1B_TKZ",
+        "value": "&BHRM_R_Pinky",
         "params": [
           {
             "value": "RCTRL",
@@ -3820,7 +3820,7 @@
     ],
     [
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "F1",
@@ -3829,7 +3829,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "F2",
@@ -3838,7 +3838,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "F3",
@@ -3847,7 +3847,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "F4",
@@ -3856,7 +3856,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "F5",
@@ -3885,7 +3885,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "EQUAL",
@@ -3894,7 +3894,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "N1",
@@ -3903,7 +3903,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "N2",
@@ -3912,7 +3912,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "N3",
@@ -3921,7 +3921,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "N4",
@@ -3930,7 +3930,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "N5",
@@ -3967,7 +3967,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "Q",
@@ -3976,7 +3976,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "W",
@@ -3985,7 +3985,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "E",
@@ -3994,7 +3994,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "R",
@@ -4003,7 +4003,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "T",
@@ -4040,7 +4040,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_index_pinky_v1B_TKZ",
+        "value": "&BHRM_L_Index_Pinky",
         "params": [
           {
             "value": "LCTRL",
@@ -4053,7 +4053,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_ringv1_TKZ",
+        "value": "&BHRM_L_Index_Ring",
         "params": [
           {
             "value": "LALT",
@@ -4066,7 +4066,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_middy_v1B_TKZ",
+        "value": "&BHRM_L_Index_Middle",
         "params": [
           {
             "value": "LGUI",
@@ -4083,7 +4083,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "G",
@@ -4140,7 +4140,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "Z",
@@ -4149,7 +4149,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "X",
@@ -4158,7 +4158,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "C",
@@ -4167,7 +4167,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "V",
@@ -4176,7 +4176,7 @@
         ]
       },
       {
-        "value": "&HRM_left_index_tap_v1B_TKZ",
+        "value": "&BHRM_L_Index_Tap",
         "params": [
           {
             "value": "B",
@@ -4299,7 +4299,7 @@
     ],
     [
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "F1",
@@ -4308,7 +4308,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "F2",
@@ -4317,7 +4317,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "F3",
@@ -4326,7 +4326,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "F4",
@@ -4335,7 +4335,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "F5",
@@ -4364,7 +4364,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "EQUAL",
@@ -4373,7 +4373,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "N1",
@@ -4382,7 +4382,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "N2",
@@ -4391,7 +4391,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "N3",
@@ -4400,7 +4400,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "N4",
@@ -4409,7 +4409,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "N5",
@@ -4446,7 +4446,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "Q",
@@ -4455,7 +4455,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "W",
@@ -4464,7 +4464,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "E",
@@ -4473,7 +4473,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "R",
@@ -4482,7 +4482,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "T",
@@ -4519,7 +4519,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_middy_pinky_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Pinky",
         "params": [
           {
             "value": "LCTRL",
@@ -4532,7 +4532,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_ring_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Ring",
         "params": [
           {
             "value": "LALT",
@@ -4549,7 +4549,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_middy_index_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Index",
         "params": [
           {
             "value": "LSHFT",
@@ -4562,7 +4562,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "G",
@@ -4619,7 +4619,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "Z",
@@ -4628,7 +4628,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "X",
@@ -4637,7 +4637,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "C",
@@ -4646,7 +4646,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "V",
@@ -4655,7 +4655,7 @@
         ]
       },
       {
-        "value": "&HRM_left_middy_tap_v1B_TKZ",
+        "value": "&BHRM_L_Middle_Tap",
         "params": [
           {
             "value": "B",
@@ -4778,7 +4778,7 @@
     ],
     [
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "F1",
@@ -4787,7 +4787,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "F2",
@@ -4796,7 +4796,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "F3",
@@ -4805,7 +4805,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "F4",
@@ -4814,7 +4814,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "F5",
@@ -4843,7 +4843,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "EQUAL",
@@ -4852,7 +4852,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "N1",
@@ -4861,7 +4861,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "N2",
@@ -4870,7 +4870,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "N3",
@@ -4879,7 +4879,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "N4",
@@ -4888,7 +4888,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "N5",
@@ -4925,7 +4925,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "Q",
@@ -4934,7 +4934,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "W",
@@ -4943,7 +4943,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "E",
@@ -4952,7 +4952,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "R",
@@ -4961,7 +4961,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "T",
@@ -4998,7 +4998,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_ring_pinky_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Pinky",
         "params": [
           {
             "value": "LCTRL",
@@ -5015,7 +5015,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_ring_middy_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Middle",
         "params": [
           {
             "value": "LGUI",
@@ -5028,7 +5028,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_index_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Index",
         "params": [
           {
             "value": "LSHFT",
@@ -5041,7 +5041,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "G",
@@ -5098,7 +5098,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "Z",
@@ -5107,7 +5107,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "X",
@@ -5116,7 +5116,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "C",
@@ -5125,7 +5125,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "V",
@@ -5134,7 +5134,7 @@
         ]
       },
       {
-        "value": "&HRM_left_ring_tap_v1B_TKZ",
+        "value": "&BHRM_L_Ring_Tap",
         "params": [
           {
             "value": "B",
@@ -5257,7 +5257,7 @@
     ],
     [
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "F1",
@@ -5266,7 +5266,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "F2",
@@ -5275,7 +5275,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "F3",
@@ -5284,7 +5284,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "F4",
@@ -5293,7 +5293,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "F5",
@@ -5322,7 +5322,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "EQUAL",
@@ -5331,7 +5331,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "N1",
@@ -5340,7 +5340,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "N2",
@@ -5349,7 +5349,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "N3",
@@ -5358,7 +5358,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "N4",
@@ -5367,7 +5367,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "N5",
@@ -5404,7 +5404,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "Q",
@@ -5413,7 +5413,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "W",
@@ -5422,7 +5422,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "E",
@@ -5431,7 +5431,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "R",
@@ -5440,7 +5440,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "T",
@@ -5481,7 +5481,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_pinky_ring_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Ring",
         "params": [
           {
             "value": "LALT",
@@ -5494,7 +5494,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_middy_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Middle",
         "params": [
           {
             "value": "LGUI",
@@ -5507,7 +5507,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_index_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Index",
         "params": [
           {
             "value": "LSHFT",
@@ -5520,7 +5520,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "G",
@@ -5577,7 +5577,7 @@
         "params": []
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "Z",
@@ -5586,7 +5586,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "X",
@@ -5595,7 +5595,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "C",
@@ -5604,7 +5604,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "V",
@@ -5613,7 +5613,7 @@
         ]
       },
       {
-        "value": "&HRM_left_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_L_Pinky_Tap",
         "params": [
           {
             "value": "B",
@@ -5756,7 +5756,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "F6",
@@ -5765,7 +5765,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "F7",
@@ -5774,7 +5774,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "F8",
@@ -5783,7 +5783,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "F9",
@@ -5792,7 +5792,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "F10",
@@ -5825,7 +5825,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "N6",
@@ -5834,7 +5834,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "N7",
@@ -5843,7 +5843,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "N8",
@@ -5852,7 +5852,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "N9",
@@ -5861,7 +5861,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "N0",
@@ -5870,7 +5870,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "MINUS",
@@ -5903,7 +5903,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "Y",
@@ -5912,7 +5912,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "U",
@@ -5921,7 +5921,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "I",
@@ -5930,7 +5930,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "O",
@@ -5939,7 +5939,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "P",
@@ -5948,7 +5948,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "BSLH",
@@ -6001,7 +6001,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "H",
@@ -6014,7 +6014,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_middy_v1B_TKZ",
+        "value": "&BHRM_R_Index_Middle",
         "params": [
           {
             "value": "RGUI",
@@ -6027,7 +6027,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_ring_v1B_TKZ",
+        "value": "&BHRM_R_Index_Ring",
         "params": [
           {
             "value": "LALT",
@@ -6040,7 +6040,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_pinky_v1B_TKZ",
+        "value": "&BHRM_R_Index_Pinky",
         "params": [
           {
             "value": "LCTRL",
@@ -6053,7 +6053,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "SQT",
@@ -6110,7 +6110,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "N",
@@ -6119,7 +6119,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "M",
@@ -6128,7 +6128,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "COMMA",
@@ -6137,7 +6137,7 @@
         ]
       },
       {
-        "value": "&HRM_right_index_tap_v1B_TKZ",
+        "value": "&BHRM_R_Index_Tap",
         "params": [
           {
             "value": "DOT",
@@ -6240,7 +6240,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "F6",
@@ -6249,7 +6249,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "F7",
@@ -6258,7 +6258,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "F8",
@@ -6267,7 +6267,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "F9",
@@ -6276,7 +6276,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "F10",
@@ -6309,7 +6309,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "N6",
@@ -6318,7 +6318,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "N7",
@@ -6327,7 +6327,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "N8",
@@ -6336,7 +6336,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "N9",
@@ -6345,7 +6345,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "N0",
@@ -6354,7 +6354,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "MINUS",
@@ -6387,7 +6387,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "Y",
@@ -6396,7 +6396,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "U",
@@ -6405,7 +6405,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "I",
@@ -6414,7 +6414,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "O",
@@ -6423,7 +6423,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "P",
@@ -6432,7 +6432,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "BSLH",
@@ -6485,7 +6485,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "H",
@@ -6494,7 +6494,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_index_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Index",
         "params": [
           {
             "value": "RSHFT",
@@ -6511,7 +6511,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_middy_ring_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Ring",
         "params": [
           {
             "value": "LALT",
@@ -6524,7 +6524,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_pinky_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Pinky",
         "params": [
           {
             "value": "RCTRL",
@@ -6537,7 +6537,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "SQT",
@@ -6594,7 +6594,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "N",
@@ -6603,7 +6603,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "M",
@@ -6612,7 +6612,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "COMMA",
@@ -6621,7 +6621,7 @@
         ]
       },
       {
-        "value": "&HRM_right_middy_tap_v1B_TKZ",
+        "value": "&BHRM_R_Middle_Tap",
         "params": [
           {
             "value": "DOT",
@@ -6724,7 +6724,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "F6",
@@ -6733,7 +6733,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "F7",
@@ -6742,7 +6742,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "F8",
@@ -6751,7 +6751,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "F9",
@@ -6760,7 +6760,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "F10",
@@ -6793,7 +6793,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "N6",
@@ -6802,7 +6802,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "N7",
@@ -6811,7 +6811,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "N8",
@@ -6820,7 +6820,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "N9",
@@ -6829,7 +6829,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "N0",
@@ -6838,7 +6838,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "MINUS",
@@ -6871,7 +6871,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "Y",
@@ -6880,7 +6880,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "U",
@@ -6889,7 +6889,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "I",
@@ -6898,7 +6898,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "O",
@@ -6907,7 +6907,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "P",
@@ -6916,7 +6916,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "BSLH",
@@ -6969,7 +6969,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "H",
@@ -6978,7 +6978,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_index_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Index",
         "params": [
           {
             "value": "RSHFT",
@@ -6991,7 +6991,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_middy_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Middle",
         "params": [
           {
             "value": "RGUI",
@@ -7008,7 +7008,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_ring_pinky_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Pinky",
         "params": [
           {
             "value": "RCTRL",
@@ -7021,7 +7021,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "SQT",
@@ -7078,7 +7078,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "N",
@@ -7087,7 +7087,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "M",
@@ -7096,7 +7096,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "COMMA",
@@ -7105,7 +7105,7 @@
         ]
       },
       {
-        "value": "&HRM_right_ring_tap_v1B_TKZ",
+        "value": "&BHRM_R_Ring_Tap",
         "params": [
           {
             "value": "DOT",
@@ -7208,7 +7208,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "F6",
@@ -7217,7 +7217,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "F7",
@@ -7226,7 +7226,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "F8",
@@ -7235,7 +7235,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "F9",
@@ -7244,7 +7244,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "F10",
@@ -7277,7 +7277,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "N6",
@@ -7286,7 +7286,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "N7",
@@ -7295,7 +7295,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "N8",
@@ -7304,7 +7304,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "N9",
@@ -7313,7 +7313,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "N0",
@@ -7322,7 +7322,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "MINUS",
@@ -7355,7 +7355,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "Y",
@@ -7364,7 +7364,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "U",
@@ -7373,7 +7373,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "I",
@@ -7382,7 +7382,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "O",
@@ -7391,7 +7391,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "P",
@@ -7400,7 +7400,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "BSLH",
@@ -7453,7 +7453,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "H",
@@ -7462,7 +7462,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_index_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Index",
         "params": [
           {
             "value": "RSHFT",
@@ -7475,7 +7475,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_middy_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Middle",
         "params": [
           {
             "value": "RGUI",
@@ -7488,7 +7488,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_ring_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Ring",
         "params": [
           {
             "value": "LALT",
@@ -7505,7 +7505,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "SQT",
@@ -7562,7 +7562,7 @@
         "params": []
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "N",
@@ -7571,7 +7571,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "M",
@@ -7580,7 +7580,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "COMMA",
@@ -7589,7 +7589,7 @@
         ]
       },
       {
-        "value": "&HRM_right_pinky_tap_v1B_TKZ",
+        "value": "&BHRM_R_Pinky_Tap",
         "params": [
           {
             "value": "DOT",
@@ -7673,8 +7673,8 @@
   ],
   "macros": [
     {
-      "name": "&HRM_right_pinky_hold_v1B_TKZ",
-      "description": "HRM_right_pinky_hold -> swich layer - TailorKey",
+      "name": "&BHRM_R_Pinky_Hold",
+      "description": "Hold: activate Right Pinky layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -7740,8 +7740,8 @@
       ]
     },
     {
-      "name": "&HRM_left_middy_hold_v1B_TKZ",
-      "description": "HRM_left_middy_hold -> swich layer - TailorKey",
+      "name": "&BHRM_L_Middle_Hold",
+      "description": "Hold: activate Left Middle layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -7807,8 +7807,8 @@
       ]
     },
     {
-      "name": "&HRM_left_middy_tap_v1B_TKZ",
-      "description": "HRM_left_middy_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_L_Middle_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -7924,8 +7924,8 @@
       ]
     },
     {
-      "name": "&HRM_right_middy_tap_v1B_TKZ",
-      "description": "HRM_right_middy_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_R_Middle_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8041,8 +8041,8 @@
       ]
     },
     {
-      "name": "&HRM_right_pinky_tap_v1B_TKZ",
-      "description": "HRM_right_pinky_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_R_Pinky_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8158,8 +8158,8 @@
       ]
     },
     {
-      "name": "&HRM_right_index_tap_v1B_TKZ",
-      "description": "HRM_right_index_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_R_Index_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8275,8 +8275,8 @@
       ]
     },
     {
-      "name": "&HRM_right_index_hold_v1B_TKZ",
-      "description": "HRM_right_index_hold -> swich layer - TailorKey",
+      "name": "&BHRM_R_Index_Hold",
+      "description": "Hold: activate Right Index layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8342,8 +8342,8 @@
       ]
     },
     {
-      "name": "&HRM_left_ring_hold_v1B_TKZ",
-      "description": "HRM_left_ring_hold -> swich layer - TailorKey",
+      "name": "&BHRM_L_Ring_Hold",
+      "description": "Hold: activate Left Ring layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8409,8 +8409,8 @@
       ]
     },
     {
-      "name": "&HRM_left_ring_tap_v1B_TKZ",
-      "description": "HRM_left_ring_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_L_Ring_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8526,8 +8526,8 @@
       ]
     },
     {
-      "name": "&HRM_left_index_tap_v1B_TKZ",
-      "description": "HRM_left_index_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_L_Index_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8643,8 +8643,8 @@
       ]
     },
     {
-      "name": "&HRM_right_ring_tap_v1B_TKZ",
-      "description": "HRM_right_ring_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_R_Ring_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8760,8 +8760,8 @@
       ]
     },
     {
-      "name": "&HRM_right_middy_hold_v1B_TKZ",
-      "description": "HRM_right_middy_hold -> swich layer - TailorKey",
+      "name": "&BHRM_R_Middle_Hold",
+      "description": "Hold: activate Right Middle layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8827,8 +8827,8 @@
       ]
     },
     {
-      "name": "&HRM_right_ring_hold_v1B_TKZ",
-      "description": "HRM_right_ring_hold -> swich layer - TailorKey",
+      "name": "&BHRM_R_Ring_Hold",
+      "description": "Hold: activate Right Ring layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -8894,8 +8894,8 @@
       ]
     },
     {
-      "name": "&HRM_left_pinky_tap_v1B_TKZ",
-      "description": "HRM_left_pinky_tap - incl. QWERTY alpha character - TailorKey",
+      "name": "&BHRM_L_Pinky_Tap",
+      "description": "Tap: restore base key",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -9011,8 +9011,8 @@
       ]
     },
     {
-      "name": "&HRM_left_pinky_hold_v1B_TKZ",
-      "description": "HRM_left_pinky_hold -> swich layer - TailorKey",
+      "name": "&BHRM_L_Pinky_Hold",
+      "description": "Hold: activate Left Pinky layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -9078,8 +9078,8 @@
       ]
     },
     {
-      "name": "&HRM_left_index_hold_v1B_TKZ",
-      "description": "HRM_left_index_hold -> swich layer  - TailorKey",
+      "name": "&BHRM_L_Index_Hold",
+      "description": "Hold: activate Left Index layer",
       "waitMs": 0,
       "tapMs": 0,
       "bindings": [
@@ -9257,10 +9257,10 @@
   ],
   "holdTaps": [
     {
-      "name": "&HRM_right_pinky_v1B_TKZ",
-      "description": "HRM_right_pinky_bilateral  - &HRM_right_pinky_hold -> &kp - TailorKey",
+      "name": "&BHRM_R_Pinky",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_right_pinky_hold_v1B_TKZ",
+        "&BHRM_R_Pinky_Hold",
         "&kp"
       ],
       "tappingTermMs": 280,
@@ -9318,10 +9318,10 @@
       ]
     },
     {
-      "name": "&HRM_left_middy_v1B_TKZ",
-      "description": "HRM_left_middy_bilateral -> &HRM_left_index_hold -> &kp - TailorKey",
+      "name": "&BHRM_L_Middle",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_left_middy_hold_v1B_TKZ",
+        "&BHRM_L_Middle_Hold",
         "&kp"
       ],
       "tappingTermMs": 210,
@@ -9379,11 +9379,11 @@
       ]
     },
     {
-      "name": "&HRM_left_middy_pinky_v1B_TKZ",
-      "description": "HRM_left_middy_pinky_bilateral -> &kp - &HRM_left_pinky_tap - TailorKey",
+      "name": "&BHRM_L_Middle_Pinky",
+      "description": "Combo: Middle + Pinky",
       "bindings": [
         "&kp",
-        "&HRM_left_middy_tap_v1B_TKZ"
+        "&BHRM_L_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",
@@ -9440,11 +9440,11 @@
       ]
     },
     {
-      "name": "&HRM_right_middy_ring_v1B_TKZ",
-      "description": "HRM_right_middy_ring_bilateral -> &kp - &HRM_right_middy_tap - TailorKey",
+      "name": "&BHRM_R_Middle_Ring",
+      "description": "Combo: Middle + Ring",
       "bindings": [
         "&kp",
-        "&HRM_right_middy_tap_v1B_TKZ"
+        "&BHRM_R_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",
@@ -9501,11 +9501,11 @@
       ]
     },
     {
-      "name": "&HRM_right_pinky_index_v1B_TKZ",
-      "description": "HRM_right_pinky_index_bilateral  -> &kp ->&HRM_right_pinky_tap - TailorKey",
+      "name": "&BHRM_R_Pinky_Index",
+      "description": "Combo: Pinky + Index",
       "bindings": [
         "&kp",
-        "&HRM_right_pinky_tap_v1B_TKZ"
+        "&BHRM_R_Pinky_Tap"
       ],
       "tappingTermMs": 280,
       "flavor": "tap-preferred",
@@ -9562,11 +9562,11 @@
       ]
     },
     {
-      "name": "&HRM_right_index_ring_v1B_TKZ",
-      "description": "HRM_right_index_ring_bilateral -> &kp - &HRM_right_index_tap - TailorKey",
+      "name": "&BHRM_R_Index_Ring",
+      "description": "Combo: Index + Ring",
       "bindings": [
         "&kp",
-        "&HRM_right_index_tap_v1B_TKZ"
+        "&BHRM_R_Index_Tap"
       ],
       "tappingTermMs": 190,
       "flavor": "tap-preferred",
@@ -9623,10 +9623,10 @@
       ]
     },
     {
-      "name": "&HRM_right_index_v1B_TKZ",
-      "description": "HRM_right_index_bilateral -> &HRM_right_index_hold -> &kp - TailorKey",
+      "name": "&BHRM_R_Index",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_right_index_hold_v1B_TKZ",
+        "&BHRM_R_Index_Hold",
         "&kp"
       ],
       "tappingTermMs": 190,
@@ -9684,11 +9684,11 @@
       ]
     },
     {
-      "name": "&HRM_right_pinky_ring_v1B_TKZ",
-      "description": "HRM_right_pinky_ring_bilateral -> &kp - &HRM_right_pinky_tap - TailorKey",
+      "name": "&BHRM_R_Pinky_Ring",
+      "description": "Combo: Pinky + Ring",
       "bindings": [
         "&kp",
-        "&HRM_right_pinky_tap_v1B_TKZ"
+        "&BHRM_R_Pinky_Tap"
       ],
       "tappingTermMs": 280,
       "flavor": "tap-preferred",
@@ -9745,11 +9745,11 @@
       ]
     },
     {
-      "name": "&HRM_right_index_pinky_v1B_TKZ",
-      "description": "HRM_right_index_pinky_bilateral -> &kp - &HRM_right_index_tap - TailorKey",
+      "name": "&BHRM_R_Index_Pinky",
+      "description": "Combo: Index + Pinky",
       "bindings": [
         "&kp",
-        "&HRM_right_index_tap_v1B_TKZ"
+        "&BHRM_R_Index_Tap"
       ],
       "tappingTermMs": 190,
       "flavor": "tap-preferred",
@@ -9806,10 +9806,10 @@
       ]
     },
     {
-      "name": "&HRM_left_ring_v1B_TKZ",
-      "description": "HRM_left_ring_bilateral  - &HRM_left_ring_hold -> &kp - TailorKey",
+      "name": "&BHRM_L_Ring",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_left_ring_hold_v1B_TKZ",
+        "&BHRM_L_Ring_Hold",
         "&kp"
       ],
       "tappingTermMs": 240,
@@ -9867,11 +9867,11 @@
       ]
     },
     {
-      "name": "&HRM_left_ring_index_v1B_TKZ",
-      "description": "HRM_left_ring_index_bilateral  -> &kp ->&HRM_left_ring_tap - TailorKey",
+      "name": "&BHRM_L_Ring_Index",
+      "description": "Combo: Ring + Index",
       "bindings": [
         "&kp",
-        "&HRM_left_ring_tap_v1B_TKZ"
+        "&BHRM_L_Ring_Tap"
       ],
       "tappingTermMs": 240,
       "flavor": "tap-preferred",
@@ -9928,11 +9928,11 @@
       ]
     },
     {
-      "name": "&HRM_left_index_ringv1_TKZ",
-      "description": "HRM_left_index_ring_bilateral -> &kp - &HRM_left_index_tap - TailorKey",
+      "name": "&BHRM_L_Index_Ring",
+      "description": "Combo: Index + Ring",
       "bindings": [
         "&kp",
-        "&HRM_left_index_tap_v1B_TKZ"
+        "&BHRM_L_Index_Tap"
       ],
       "tappingTermMs": 190,
       "flavor": "tap-preferred",
@@ -9989,11 +9989,11 @@
       ]
     },
     {
-      "name": "&HRM_right_ring_middy_v1B_TKZ",
-      "description": "HRM_right_ring_middy_bilateral -> &kp - &HRM_right_ring_tap - TailorKey",
+      "name": "&BHRM_R_Ring_Middle",
+      "description": "Combo: Ring + Middle",
       "bindings": [
         "&kp",
-        "&HRM_right_ring_tap_v1B_TKZ"
+        "&BHRM_R_Ring_Tap"
       ],
       "tappingTermMs": 240,
       "flavor": "tap-preferred",
@@ -10050,10 +10050,10 @@
       ]
     },
     {
-      "name": "&HRM_right_middy_v1B_TKZ",
-      "description": "HRM_right_middy_bilateral -> &HRM_right_index_hold -> &kp - TailorKey",
+      "name": "&BHRM_R_Middle",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_right_middy_hold_v1B_TKZ",
+        "&BHRM_R_Middle_Hold",
         "&kp"
       ],
       "tappingTermMs": 210,
@@ -10111,11 +10111,11 @@
       ]
     },
     {
-      "name": "&HRM_left_ring_middy_v1B_TKZ",
-      "description": "HRM_left_ring_middy_bilateral -> &kp - &HRM_left_ring_tap - TailorKey",
+      "name": "&BHRM_L_Ring_Middle",
+      "description": "Combo: Ring + Middle",
       "bindings": [
         "&kp",
-        "&HRM_left_ring_tap_v1B_TKZ"
+        "&BHRM_L_Ring_Tap"
       ],
       "tappingTermMs": 240,
       "flavor": "tap-preferred",
@@ -10172,11 +10172,11 @@
       ]
     },
     {
-      "name": "&HRM_right_ring_pinky_v1B_TKZ",
-      "description": "HRM_right_ring_pinky_bilateral -> &kp - &HRM_right_ring_tap - TailorKey",
+      "name": "&BHRM_R_Ring_Pinky",
+      "description": "Combo: Ring + Pinky",
       "bindings": [
         "&kp",
-        "&HRM_right_ring_tap_v1B_TKZ"
+        "&BHRM_R_Ring_Tap"
       ],
       "tappingTermMs": 240,
       "flavor": "tap-preferred",
@@ -10233,11 +10233,11 @@
       ]
     },
     {
-      "name": "&HRM_right_middy_pinky_v1B_TKZ",
-      "description": "HRM_right_middy_pinky_bilateral -> &kp - &HRM_right_pinky_tap - TailorKey",
+      "name": "&BHRM_R_Middle_Pinky",
+      "description": "Combo: Middle + Pinky",
       "bindings": [
         "&kp",
-        "&HRM_right_middy_tap_v1B_TKZ"
+        "&BHRM_R_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",
@@ -10294,10 +10294,10 @@
       ]
     },
     {
-      "name": "&HRM_right_ring_v1B_TKZ",
-      "description": "HRM_right_ring_bilateral  - &HRM_right_ring_hold -> &kp - TailorKey",
+      "name": "&BHRM_R_Ring",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_right_ring_hold_v1B_TKZ",
+        "&BHRM_R_Ring_Hold",
         "&kp"
       ],
       "tappingTermMs": 240,
@@ -10355,11 +10355,11 @@
       ]
     },
     {
-      "name": "&HRM_left_pinky_ring_v1B_TKZ",
-      "description": "HRM_left_pinky_ring_bilateral -> &kp - &HRM_left_pinky_tap - TailorKey",
+      "name": "&BHRM_L_Pinky_Ring",
+      "description": "Combo: Pinky + Ring",
       "bindings": [
         "&kp",
-        "&HRM_left_pinky_tap_v1B_TKZ"
+        "&BHRM_L_Pinky_Tap"
       ],
       "tappingTermMs": 280,
       "flavor": "tap-preferred",
@@ -10416,11 +10416,11 @@
       ]
     },
     {
-      "name": "&HRM_left_middy_ring_v1B_TKZ",
-      "description": "HRM_left_middy_ring_bilateral -> &kp - &HRM_left_middy_tap - TailorKey",
+      "name": "&BHRM_L_Middle_Ring",
+      "description": "Combo: Middle + Ring",
       "bindings": [
         "&kp",
-        "&HRM_left_middy_tap_v1B_TKZ"
+        "&BHRM_L_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",
@@ -10477,10 +10477,10 @@
       ]
     },
     {
-      "name": "&HRM_left_pinky_v1B_TKZ",
-      "description": "HRM_left_pinky_bilateral  - &HRM_left_pinky_hold -> &kp - TailorKey",
+      "name": "&BHRM_L_Pinky",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_left_pinky_hold_v1B_TKZ",
+        "&BHRM_L_Pinky_Hold",
         "&kp"
       ],
       "tappingTermMs": 280,
@@ -10538,11 +10538,11 @@
       ]
     },
     {
-      "name": "&HRM_left_pinky_middy_v1B_TKZ",
-      "description": "HRM_left_pinky_middy_bilateral -> &kp - &HRM_left_pinky_tap - TailorKey",
+      "name": "&BHRM_L_Pinky_Middle",
+      "description": "Combo: Pinky + Middle",
       "bindings": [
         "&kp",
-        "&HRM_left_pinky_tap_v1B_TKZ"
+        "&BHRM_L_Pinky_Tap"
       ],
       "tappingTermMs": 280,
       "flavor": "tap-preferred",
@@ -10599,11 +10599,11 @@
       ]
     },
     {
-      "name": "&HRM_left_index_middy_v1B_TKZ",
-      "description": "HRM_left_index_middy_bilateral -> &kp - &HRM_left_index_tap - TailorKey",
+      "name": "&BHRM_L_Index_Middle",
+      "description": "Combo: Index + Middle",
       "bindings": [
         "&kp",
-        "&HRM_left_index_tap_v1B_TKZ"
+        "&BHRM_L_Index_Tap"
       ],
       "tappingTermMs": 190,
       "flavor": "tap-preferred",
@@ -10660,11 +10660,11 @@
       ]
     },
     {
-      "name": "&HRM_left_ring_pinky_v1B_TKZ",
-      "description": "HRM_left_ring_pinky_bilateral -> &kp - &HRM_left_ring_tap - TailorKey",
+      "name": "&BHRM_L_Ring_Pinky",
+      "description": "Combo: Ring + Pinky",
       "bindings": [
         "&kp",
-        "&HRM_left_ring_tap_v1B_TKZ"
+        "&BHRM_L_Ring_Tap"
       ],
       "tappingTermMs": 240,
       "flavor": "tap-preferred",
@@ -10721,11 +10721,11 @@
       ]
     },
     {
-      "name": "&HRM_right_pinky_middy_v1B_TKZ",
-      "description": "HRM_right_pinky_middy_bilateral -> &kp - &HRM_right_pinky_tap - TailorKey",
+      "name": "&BHRM_R_Pinky_Middle",
+      "description": "Combo: Pinky + Middle",
       "bindings": [
         "&kp",
-        "&HRM_right_pinky_tap_v1B_TKZ"
+        "&BHRM_R_Pinky_Tap"
       ],
       "tappingTermMs": 280,
       "flavor": "tap-preferred",
@@ -10782,11 +10782,11 @@
       ]
     },
     {
-      "name": "&HRM_left_middy_index_v1B_TKZ",
-      "description": "HRM_left_middy_index_bilateral  -> &kp ->&HRM_left_middy_tap - TailorKey",
+      "name": "&BHRM_L_Middle_Index",
+      "description": "Combo: Middle + Index",
       "bindings": [
         "&kp",
-        "&HRM_left_middy_tap_v1B_TKZ"
+        "&BHRM_L_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",
@@ -10843,11 +10843,11 @@
       ]
     },
     {
-      "name": "&HRM_left_index_pinky_v1B_TKZ",
-      "description": "HRM_left_index_pinky_bilateral -> &kp - &HRM_left_index_tap - TailorKey",
+      "name": "&BHRM_L_Index_Pinky",
+      "description": "Combo: Index + Pinky",
       "bindings": [
         "&kp",
-        "&HRM_left_index_tap_v1B_TKZ"
+        "&BHRM_L_Index_Tap"
       ],
       "tappingTermMs": 190,
       "flavor": "tap-preferred",
@@ -10904,11 +10904,11 @@
       ]
     },
     {
-      "name": "&HRM_right_ring_index_v1B_TKZ",
-      "description": "HRM_right_ring_index_bilateral  -> &kp ->&HRM_right_ring_tap - TailorKey",
+      "name": "&BHRM_R_Ring_Index",
+      "description": "Combo: Ring + Index",
       "bindings": [
         "&kp",
-        "&HRM_right_ring_tap_v1B_TKZ"
+        "&BHRM_R_Ring_Tap"
       ],
       "tappingTermMs": 240,
       "flavor": "tap-preferred",
@@ -10965,10 +10965,10 @@
       ]
     },
     {
-      "name": "&HRM_left_index_v1B_TKZ",
-      "description": "HRM_left_index_bilateral -> &HRM_left_index_hold -> &kp - TailorKey",
+      "name": "&BHRM_L_Index",
+      "description": "HRM: tap\u2192key, hold\u2192layer",
       "bindings": [
-        "&HRM_left_index_hold_v1B_TKZ",
+        "&BHRM_L_Index_Hold",
         "&kp"
       ],
       "tappingTermMs": 190,
@@ -11026,11 +11026,11 @@
       ]
     },
     {
-      "name": "&HRM_left_pinky_index_v1B_TKZ",
-      "description": "HRM_left_pinky_index_bilateral  -> &kp ->&HRM_left_pinky_tap - TailorKey",
+      "name": "&BHRM_L_Pinky_Index",
+      "description": "Combo: Pinky + Index",
       "bindings": [
         "&kp",
-        "&HRM_left_pinky_tap_v1B_TKZ"
+        "&BHRM_L_Pinky_Tap"
       ],
       "tappingTermMs": 280,
       "flavor": "tap-preferred",
@@ -11087,11 +11087,11 @@
       ]
     },
     {
-      "name": "&HRM_right_index_middy_v1B_TKZ",
-      "description": "HRM_right_index_middy_bilateral -> &kp - &HRM_right_index_tap - TailorKey",
+      "name": "&BHRM_R_Index_Middle",
+      "description": "Combo: Index + Middle",
       "bindings": [
         "&kp",
-        "&HRM_right_index_tap_v1B_TKZ"
+        "&BHRM_R_Index_Tap"
       ],
       "tappingTermMs": 190,
       "flavor": "tap-preferred",
@@ -11148,11 +11148,11 @@
       ]
     },
     {
-      "name": "&HRM_right_middy_index_v1B_TKZ",
-      "description": "HRM_right_middy_index_bilateral  -> &kp ->&HRM_right_middy_tap - TailorKey",
+      "name": "&BHRM_R_Middle_Index",
+      "description": "Combo: Middle + Index",
       "bindings": [
         "&kp",
-        "&HRM_right_middy_tap_v1B_TKZ"
+        "&BHRM_R_Middle_Tap"
       ],
       "tappingTermMs": 210,
       "flavor": "tap-preferred",

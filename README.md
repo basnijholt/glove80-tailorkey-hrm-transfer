@@ -45,7 +45,18 @@ python3 copy_hrm_bindings.py \
 - The `--value` flags identify which bindings to copy; repeat for each HRM you need.
 - The script writes the result to `<target_stem>_with_hrm.json` (e.g., `QuantumTouch80_with_hrm.json`) so the original file stays untouched. Pass `--output somefile.json` to choose a different name.
 - Supporting hold-tap behaviors and macros referenced by the copied HRMs are automatically pulled in to keep the layout functional.
+- Imported behaviors are renamed to a readable `BHRM_<Hand>_<Finger>[_<Combo>][_Hold|_Tap]` scheme (e.g., `&BHRM_L_Index_Hold`) so the Glove80 editor stays tidy.
 - TailorKey’s finger layers (`LeftIndex` … `RightPinky`) are copied as needed, and the macro `&mo` references are remapped so the holds activate the correct layers in your layout.
+
+### Renaming an existing layout
+
+If you already merged the TailorKey HRMs and just need to convert old `&HRM_*` names to the new `&BHRM_*` scheme, run:
+
+```bash
+python3 rename_hrm_names.py --input QuantumTouch80_with_hrm.json
+```
+
+Add `--output newfile.json` if you’d like to keep the original file untouched.
 
 ## Importing the merged layout
 
