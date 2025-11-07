@@ -178,14 +178,18 @@ def describe_holdtap(name: str, current: str) -> str:
 
 def apply_bhrm_cleanup(data: dict[str, Any]) -> dict[str, Any]:
     cleaned = transform_strings(data)
-    for macro in cleaned.get("macros", []):
+    macros = cleaned.get("macros", [])
+    for macro in macros:
         macro["description"] = describe_macro(
             macro.get("name", ""),
             macro.get("description", ""),
         )
-    for holdtap in cleaned.get("holdTaps", []):
+    holdtaps = cleaned.get("holdTaps", [])
+    for holdtap in holdtaps:
         holdtap["description"] = describe_holdtap(
             holdtap.get("name", ""),
             holdtap.get("description", ""),
         )
+    macros.sort(key=lambda m: m.get("name", ""))
+    holdtaps.sort(key=lambda ht: ht.get("name", ""))
     return cleaned
