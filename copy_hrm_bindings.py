@@ -27,6 +27,17 @@ import sys
 
 from hrm_utils import apply_bhrm_cleanup
 
+FINGER_LAYER_NAMES = {
+    "LeftIndex": "LeftIndex",
+    "LeftMiddy": "LeftMiddle",
+    "LeftRingy": "LeftRing",
+    "LeftPinky": "LeftPinky",
+    "RightIndex": "RightIndex",
+    "RightMiddy": "RightMiddle",
+    "RightRingy": "RightRing",
+    "RightPinky": "RightPinky",
+}
+
 
 def normalize_value_name(name: str) -> str:
     return name if name.startswith("&") else f"&{name}"
@@ -141,14 +152,15 @@ def ensure_layers(
     for src_idx in sorted(needed_indices):
         if src_idx < 0 or src_idx >= len(source["layers"]):
             continue
-        name = source["layer_names"][src_idx]
-        if name in existing:
-            mapping[src_idx] = existing[name]
+        raw_name = source["layer_names"][src_idx]
+        canonical_name = FINGER_LAYER_NAMES.get(raw_name, raw_name)
+        if canonical_name in existing:
+            mapping[src_idx] = existing[canonical_name]
             continue
-        target["layer_names"].append(name)
+        target["layer_names"].append(canonical_name)
         target["layers"].append(copy.deepcopy(source["layers"][src_idx]))
         new_idx = len(target["layer_names"]) - 1
-        existing[name] = new_idx
+        existing[canonical_name] = new_idx
         mapping[src_idx] = new_idx
     return mapping
 
