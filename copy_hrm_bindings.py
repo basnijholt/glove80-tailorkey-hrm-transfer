@@ -73,18 +73,41 @@ def collect_support_objects(
 
     collected_holdtaps: List[Dict] = []
     collected_macros: List[Dict] = []
+    queue: List[str] = list(names)
+    seen_holdtaps: Set[str] = set()
+    seen_macros: Set[str] = set()
 
-    for name in names:
-        holdtap = holdtap_map.get(name)
-        if not holdtap:
+    def enqueue(name: str) -> None:
+        if name in holdtap_map and name not in seen_holdtaps:
+            queue.append(name)
+        elif name in macro_map and name not in seen_macros:
+            queue.append(name)
+
+    while queue:
+        name = queue.pop()
+        if name in holdtap_map and name not in seen_holdtaps:
+            holdtap = holdtap_map[name]
+            collected_holdtaps.append(holdtap)
+            seen_holdtaps.add(name)
+            for binding in holdtap.get("bindings", []):
+                if isinstance(binding, str):
+                    enqueue(binding)
+                elif isinstance(binding, dict):
+                    val = binding.get("value")
+                    if isinstance(val, str):
+                        enqueue(val)
             continue
-        collected_holdtaps.append(holdtap)
-        for binding_name in holdtap.get("bindings", []):
-            if not isinstance(binding_name, str):
-                continue
-            macro = macro_map.get(binding_name)
-            if macro:
-                collected_macros.append(macro)
+        if name in macro_map and name not in seen_macros:
+            macro = macro_map[name]
+            collected_macros.append(macro)
+            seen_macros.add(name)
+            for binding in macro.get("bindings", []):
+                if isinstance(binding, str):
+                    enqueue(binding)
+                elif isinstance(binding, dict):
+                    val = binding.get("value")
+                    if isinstance(val, str):
+                        enqueue(val)
     return collected_holdtaps, collected_macros
 
 
@@ -120,6 +143,19 @@ def ensure_layers(
         existing[name] = new_idx
         mapping[src_idx] = new_idx
     return mapping
+
+
+def gather_layer_values(source: Dict, layer_indices: Set[int]) -> Set[str]:
+    values: Set[str] = set()
+    layers = source["layers"]
+    for idx in layer_indices:
+        if idx < 0 or idx >= len(layers):
+            continue
+        for key in layers[idx]:
+            val = key.get("value")
+            if isinstance(val, str):
+                values.add(val)
+    return values
 
 
 def remap_macro_layers(macros: List[Dict], layer_map: Dict[int, int]) -> None:
@@ -194,8 +230,14 @@ def main(argv: List[str]) -> int:
     for idx, key in entries:
         dst_layer[idx] = copy.deepcopy(key)
 
+    initial_values = {key.get("value") for _, key in entries}
+    _, macros_initial = collect_support_objects(source, list(initial_values))
+    required_layer_indices = collect_macro_layer_indices(macros_initial)
+    layer_value_requirements = gather_layer_values(source, required_layer_indices)
+    all_required_values = initial_values | layer_value_requirements
+
     holdtaps_src, macros_src = collect_support_objects(
-        source, [key.get("value") for _, key in entries]
+        source, list(all_required_values)
     )
 
     holdtaps = [copy.deepcopy(ht) for ht in holdtaps_src]
