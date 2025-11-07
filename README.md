@@ -58,6 +58,11 @@ python3 rename_hrm_names.py --input QuantumTouch80_with_hrm.json
 
 Add `--output newfile.json` if you’d like to keep the original file untouched.
 
+### One-off utilities
+
+- `swap_base_layers.py` promotes a “modded” base layer: it copies any `&trans` bindings on `BaseModded` from the stock `Base` layer, makes those `Base` positions transparent, and swaps the two layers so your customized base becomes layer 0.
+- `insert_hrm_layer.py` inserts a dedicated `HRM` layer (right after `Base` by default), moves all `&BHRM_*` bindings there, restores the original tap behavior on `Base`, and remaps every `&mo` / `layers` reference so indices stay correct. Use this if you want HRMs only when you momentarily switch into that layer.
+
 ## Importing the merged layout
 
 1. Return to https://my.glove80.com/#/layout/<your-layout>.
