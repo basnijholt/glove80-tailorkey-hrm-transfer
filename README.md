@@ -1,6 +1,13 @@
 # TailorKey HRM Copier
 
-This repository contains a small helper script (`copy_hrm_bindings.py`) that copies TailorKey's bilateral Home‑Row Mods (HRMs) from the TailorKey layout into any other Glove80 JSON layout. It was written so I could pull the Bilateral HRMs from [TailorKey](https://sites.google.com/view/keyboards/glove80_tailorkey) onto my existing `BaseModded` layer without touching the original file.
+This repository contains a small helper script (`copy_hrm_bindings.py`) that copies TailorKey's bilateral Home‑Row Mods (HRMs) from the TailorKey layout into any other Glove80 JSON layout.
+It was written so I could pull the Bilateral HRMs from [TailorKey](https://sites.google.com/view/keyboards/glove80_tailorkey) onto my existing `BaseModded` layer without touching the original file.
+
+## Example input/output
+
+- **Source layout**: [TailorKey v4.2h - macOS Bilateral](https://my.glove80.com/#/layout/user/906466c2-8029-4831-9571-2bf250ca4505)
+- **Target layout**: [QuantumTouch80](https://my.glove80.com/#/layout/user/c5342d66-e6ed-4d04-9ae0-2dfc9cd87930) (to layer 1 `BaseModded`)
+- **Resulting layout**: [QuantumTouch80 with BHRMs](https://my.glove80.com/#/layout/user/d39c3460-b255-4fb0-8e52-b6335e4ae94f)
 
 ## Requirements
 
@@ -14,7 +21,7 @@ This repository contains a small helper script (`copy_hrm_bindings.py`) that cop
 1. Open https://my.glove80.com/#/settings and enable **Local Backup and Restore** so the portal lets you export/import JSON layouts.
 2. Visit the TailorKey download page (https://sites.google.com/view/keyboards/glove80_tailorkey/get-it-now) and follow the link to the layout you want, e.g. https://my.glove80.com/#/layout/user/906466c2-8029-4831-9571-2bf250ca4505.
 3. Scroll to the bottom of that layout page, click **Export ➜ JSON Download File**, and save it as `TailorKey v4.2h - macOS Bilateral.json`.
-4. Go back to your own layout on https://my.glove80.com/#/layout/... and export it the same way; save the file alongside the TailorKey export.
+4. Go back to your own layout on https://my.glove80.com/#/my_layouts and export it the same way; save the file alongside the TailorKey export.
 5. Run `copy_hrm_bindings.py` as shown below to merge the TailorKey HRMs into your layout.
 
 ## Usage
